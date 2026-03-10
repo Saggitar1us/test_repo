@@ -7,13 +7,13 @@ class LoginPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.shadow_link = page.locator("a:has-text('Powered by Skif.pro')")
+        self.shadow_link = page.locator("a:has-text('Hello Ring')")
         self.email_input = page.locator("input[type='email'], input[name='email'], input[name='login']").first
         self.password_input = page.locator("input[type='password'], input[name='password']").first
         self.submit_button = page.locator("button[type='submit'], button:has-text('Войти'), button:has-text('Login')").first
 
     def check_visible_text(self):
-        expect(self.shadow_link).to_contain_text("Powered by Skif.pro")
+        expect(self.shadow_link).to_contain_text("Hello Ring")
 
     def login(self, username: str, password: str):
         self.email_input.fill(username)
